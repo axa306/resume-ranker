@@ -1,8 +1,8 @@
-# 📄 Resume Ranking & Bias Audit Tool
+# Resume Ranking & Bias Audit Tool
 
 This Streamlit web app allows users to upload resumes and a job description, rank candidates by similarity using semantic embeddings, and audit for potential biases by gender and school type.
 
-## 🔍 Features
+## Features
 
 - Upload multiple resumes in PDF or CSV format
 - Upload a plain text job description
@@ -13,7 +13,7 @@ This Streamlit web app allows users to upload resumes and a job description, ran
   - School type (elite vs non-elite)
 - Interactive filtering, resume preview, and scoring interpretation
 
-## 🚀 How to Run Locally
+## How to Run Locally
 
 1. **Clone the repository:**
 
