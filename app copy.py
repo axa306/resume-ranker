@@ -57,7 +57,7 @@ def extract_fields_from_pdf(pdf_file):
         "text": text
     }
 
-st.title("📄 Resume Ranking & Bias Audit Tool")
+st.title("Resume Ranking & Bias Audit Tool")
 
 # Sidebar: Upload job description and resumes
 st.sidebar.header("Step 1: Upload Files")
@@ -103,7 +103,7 @@ if job_desc_file and resume_files:
     ranked_df = resumes_df.sort_values(by="similarity_score", ascending=False).reset_index(drop=True)
 
     # Bias Auditing
-    st.header("📊 Bias Auditing")
+    st.header("Bias Auditing")
     if "gender" in ranked_df.columns and "school_type" in ranked_df.columns:
         gender_bias = ranked_df.groupby("gender")["similarity_score"].mean().reset_index()
         school_bias = ranked_df.groupby("school_type")["similarity_score"].mean().reset_index()
@@ -119,7 +119,7 @@ if job_desc_file and resume_files:
         st.pyplot(fig)
 
     # Show Top Candidates
-    st.header("🏆 Top Ranked Candidates")
+    st.header("Top Ranked Candidates")
     max_candidates = len(ranked_df)
     if max_candidates > 1:
         top_n = st.slider("Select number of candidates to display", 1, max_candidates, min(5, max_candidates))
@@ -130,7 +130,7 @@ if job_desc_file and resume_files:
     st.dataframe(ranked_df[["name", "gender", "school", "school_type", "similarity_score"]].head(top_n))
 
     # Interpretation of Score Ranges
-    st.subheader("📈 Score Interpretation")
+    st.subheader("Score Interpretation")
     st.markdown("""
     - **0.65 and above** → Very strong match  
     - **0.55 - 0.64** → Good match  
@@ -139,7 +139,7 @@ if job_desc_file and resume_files:
     """)
 
     # View Full Resume
-    st.header("🔍 View Resume Details")
+    st.header("View Resume Details")
     selected_index = st.selectbox("Select a candidate to view full resume", range(top_n))
     selected_resume = ranked_df.iloc[selected_index]
     st.markdown(f"""
